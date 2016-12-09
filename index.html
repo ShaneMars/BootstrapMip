@@ -2,11 +2,15 @@
 <html mip>
 <head>
 	<meta charset="UTF-8">
+
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1">
+
 	<link rel="stylesheet" type="text/css" href="https://mipcache.bdstatic.com/static/v1/mip.css">
     <link rel="canonical" href="//www.mipengine.org/">
+
+
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
-	<title>Boootstrap</title>
+	<title>Boootstrap首页</title>
 	<style mip-custom>
 	*{
 		list-style: none;
@@ -20,6 +24,20 @@
 			padding:0;
 			text-align: center;
 		}
+		mip-fixed[type="top"]{
+			overflow:visible;
+		}
+		#bs-navbar{
+			margin-top: 0 !important;
+			background-color: #222 !important;
+		}
+		.navbar-inverse .navbar-nav>li>mip-link {
+		    color: #9d9d9d !important;
+		    text-align: left !important;
+		}
+		.navbar-wise-close{
+			margin-top: 200px !important;
+		}
 		.fa {
 		    display: inline-block;
 		    font: normal normal normal 14px/1 FontAwesome;
@@ -27,16 +45,6 @@
 		    text-rendering: auto;
 		    -webkit-font-smoothing: antialiased;
 		    -moz-osx-font-smoothing: grayscale;
-		}
-		.job-hot {
-		    position: absolute;
-		    color: #d9534f;
-		    right: 0;
-		    top: 15px;
-		}
-		.fa-fire:before {
-		    content: "\f06d";
-		    box-sizing: border-box;
 		}
 		.masthead {
 		    padding: 60px 0 80px;
@@ -127,21 +135,11 @@
 		.fa-qq:before {
 		    content: "\f1d6";
 		}
-		.bc-social-buttons>li+li:before {
-		    padding: 0 10px;
-		    color: #ccc;
-		    content: "|";
-		}
-		.bc-social-buttons li a {
+		.bc-social-buttons li mip-link {
 		    color: #555;
 		}
 		.fa-comments:before {
 		    content: "\f086";
-		}
-		.bc-social-buttons>li+li:before {
-		    padding: 0 10px;
-		    color: #ccc;
-		    content: "|";
 		}
 		.bc-social-buttons li .fa-weibo {
 		    font-size: 20px;
@@ -184,26 +182,67 @@
 		    overflow-y: hidden;
 		    color: #555;
 		}
+		.row mip-link{
+    		color: #337ab7;
+    		text-decoration: none;
+		}
+		.mip-element-sidebar {
+			z-index:9999;
+		}
 	</style>
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top">
+	<!-- 顶部悬浮 -->
+
+	<mip-fixed class="navbar navbar-inverse" type="top">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand hidden-sm" href="http://www.bootcss.com" target="_blank">Bootstrap中文网</a>
+				<mip-link class="navbar-brand hidden-sm" href="http://www.bootcss.com">Bootstrap中文网</mip-link>
+		      	<div class="mip-nav-wrapper">
+
+	<!-- 菜单 -->
+
+				<mip-nav-slidedown data-id="bs-navbar" class="mip-element-sidebar container" >
+				    <nav id="bs-navbar" class="navbar-collapse collapse navbar navbar-static-top">
+				        <ul class="nav navbar-nav navbar-right">
+				            <li>
+				                <mip-link href="http://v2.bootcss.com/">Bootstrap2中文文档</mip-link>
+				            </li>
+				            <li>
+				                <mip-link href="http://v3.bootcss.com/">Bootstrap3中文文档</mip-link>
+				            </li>
+				            <li>
+				                <mip-link href="http://v4.bootcss.com/">Bootstrap 4.0 预览</mip-link>
+				            </li>
+				            <li>
+				                <mip-link href="http://www.bootcss.com/p/lesscss/">Less 教程</mip-link>
+				            </li>
+				            <li>
+				                <mip-link href="http://www.jquery123.com/">jQuery API</mip-link>
+				            </li>
+				             <li>
+				                <mip-link href="http://expo.bootcss.com">网站实例</mip-link>
+				            </li>
+				             <li class="navbar-wise-close">
+				                <span id="navbar-wise-close-btn"></span>
+				            </li>
+				        </ul>
+				    </nav>
+				</mip-nav-slidedown>
+			</div>
 			</div>
 		</div>
-	</div>
+	</mip-fixed>
 	<div class="jumbotron masthead">
 		<div class="container">
 			<h1>Bootstrap</h1>
 			<h2>简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。</h2>
 			<p class="masthead-button-links">
-          		<a class="btn btn-lg btn-primary btn-shadow" href="http://v3.bootcss.com/" target="_blank" role="button">Bootstrap3中文文档(v3.3.5)</a>
+          		<mip-link class="btn btn-lg btn-primary btn-shadow" href="http://v3.bootcss.com/">Bootstrap3中文文档(v3.3.5)</a>
         	</p>
         	<ul class="masthead-links">
 	          <li>
-	            <a href="http://v2.bootcss.com/" target="_blank" role="button">Bootstrap2中文文档(v2.3.2)</a>
+	            <mip-link href="http://v2.bootcss.com/" target="_blank">Bootstrap2中文文档(v2.3.2)</mip-link>
 	          </li>
         	</ul>
 		</div>
@@ -215,12 +254,12 @@
 	            <i class="fa fa-qq"></i> Bootstrap技术交流群：<span id="qqgroup">318630708</span>
 	          </li>
 	          <li class="social-forum">
-	            <a class="" href="http://wenda.bootcss.com" title="Bootstrap问答社区" target="_blank">
+	            <mip-link href="http://wenda.bootcss.com" title="Bootstrap问答社区">
 	              <i class="fa fa-comments"></i> Bootstrap问答社区
-	            </a>
+	            </mip-link>
 	          </li>
 	          <li class="social-weibo">
-	            <a href="http://weibo.com/bootcss" title="Bootstrap中文网官方微博" target="_blank"><i class="fa fa-weibo"></i> 新浪微博：@Bootstrap中文网</a>
+	            <mip-link href="http://weibo.com/bootcss" title="Bootstrap中文网官方微博"><i class="fa fa-weibo"></i> 新浪微博：@Bootstrap中文网</mip-link>
 	          </li>
         </ul>
 		</div>
@@ -233,12 +272,12 @@
       	<div class="row">
       		<div class="col-sm-6 col-md-4 col-lg-3">
       			<div class="thumbnail">
-            		<a href="http://codeguide.bootcss.com" title="Bootstrap 编码规范" target="_blank">
+            		<mip-link href="http://codeguide.bootcss.com" title="Bootstrap 编码规范">
             			<mip-img class="lazy" src="http://static.bootcss.com/www/assets/img/codeguide.png" width="300" height="150" layout="responsive"></mip-img>
-            		</a>
+            		</mip-link>
 	            	<div class="caption">
 	              		<h3>
-	                		<a href="http://codeguide.bootcss.com" title="Bootstrap 编码规范：编写灵活、稳定、高质量的 HTML 和 CSS 代码的规范。" target="_blank">Bootstrap 编码规范<br><small>by @mdo</small></a>
+	                		<mip-link href="http://codeguide.bootcss.com" title="Bootstrap 编码规范：编写灵活、稳定、高质量的 HTML 和 CSS 代码的规范。">Bootstrap 编码规范<br><small>by @mdo</small></mip-link>
 	              		</h3>
 	              		<p>
 			              Bootstrap 编码规范：编写灵活、稳定、高质量的 HTML 和 CSS 代码的规范。
@@ -248,12 +287,12 @@
       		</div>
       		<div class="col-sm-6 col-md-4 col-lg-3 ">
           		<div class="thumbnail">
-            		<a href="http://www.jquery123.com/api/" title="jQuery API 中文文档/手册" target="_blank">
+            		<mip-link href="http://www.jquery123.com/api/" title="jQuery API 中文文档/手册">
             			<mip-img class="lazy" src="http://static.bootcss.com/www/assets/img/jqueryapi.png" width="300" height="150" layout="responsive"></mip-img>
-            		</a>
+            		</mip-link>
 	           		 <div class="caption">
 	              		<h3>
-	                		<a href="http://www.jquery123.com/api/" title="jQuery API 中文文档/手册" target="_blank">jQuery API <br><small>中文手册</small></a>
+	                		<mip-link href="http://www.jquery123.com/api/" title="jQuery API 中文文档/手册">jQuery API <br><small>中文手册</small></mip-link>
 	              		</h3>
 	              		<p>
 			              根据最新的 jQuery 1.11.x 和 2.1.x 版本翻译的 jQuery API 中文文档/手册。
@@ -263,12 +302,12 @@
         	</div>
         	<div class="col-sm-6 col-md-4 col-lg-3 ">
 	          <div class="thumbnail">
-	            <a href="http://w3schools.bootcss.com/" title="w3schools 原版国内镜像" target="_blank">
+	            <mip-link href="http://w3schools.bootcss.com/" title="w3schools 原版国内镜像" target="_blank">
 	            	<mip-img class="lazy" src="http://static.bootcss.com/www/assets/img/w3schools.png" width="300" height="150" layout="responsive"></mip-img>
-	            </a>
+	            </mip-link>
 	            <div class="caption">
 	              <h3>
-	                <a href="http://w3schools.bootcss.com/" title="w3schools 原版国内镜像" target="_blank">w3schools<br><small>原版国内镜像</small></a>
+	                <mip-link href="http://w3schools.bootcss.com/" title="w3schools 原版国内镜像">w3schools<br><small>原版国内镜像</small></mip-link>
 	              </h3>
 	              <p>w3schools.com 是最受欢迎的前端技术教程网站，但是国内用户一直不能访问，并且国内的中文翻译版本十分陈旧。因此做了个镜像，希望英文好的同学直接去看原版教程吧！
 	              </p>
@@ -277,12 +316,12 @@
         	</div>
         	<div class="col-sm-6 col-md-4 col-lg-3 ">
 	          <div class="thumbnail">
-	            <a href="http://expo.bootcss.com/" title="Bootstrap优站精选" target="_blank">
+	            <mip-link href="http://expo.bootcss.com/" title="Bootstrap优站精选">
 	            	<mip-img class="lazy" src="http://static.bootcss.com/www/assets/img/expo.png" width="300" height="150" layout="responsive"></mip-img>
-	            </a>
+	            </mip-link>
 	            <div class="caption">
 	              <h3>
-	                <a href="http://expo.bootcss.com/" title="Bootstrap优站精选" target="_blank">优站精选<br><small>Bootstrap网站实例</small></a>
+	                <mip-link href="http://expo.bootcss.com/" title="Bootstrap优站精选">优站精选<br><small>Bootstrap网站实例</small></mip-link>
 	              </h3>
 	              <p>Bootstrap优站精选频道收集了众多基于 Bootstrap 构建、设计精美的、有创意的网站。
 	              </p>
@@ -291,6 +330,19 @@
         	</div>
       	</div>
 	</div>
+
+	<!-- 快速回顶 -->
+
+<mip-fixed type="gototop">
+    <mip-gototop threshold='320'></mip-gototop>
+</mip-fixed>
+
 	<script src="https://mipcache.bdstatic.com/static/v1/mip.js"></script>
+
+<!-- 引入mip组件 -->
+	<script src="https://mipcache.bdstatic.com/static/v1/mip-fixed/mip-fixed.js"></script>
+	<script src="https://mipcache.bdstatic.com/static/v1/mip-gototop/mip-gototop.js"></script>
+	<script src="https://mipcache.bdstatic.com/static/v1/mip-link/mip-link.js"></script>
+	<script src="https://mipcache.bdstatic.com/static/v1/mip-nav-slidedown/mip-nav-slidedown.js"></script>
 </body>
 </html>
